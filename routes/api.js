@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const fs = require('fs');
-const util = require('util');
 const { v4: uuidv4 } = require('uuid');
 
 // Get should read db.json and return all saved notes as JSON
@@ -27,8 +26,26 @@ router.post('/notes', (req, res) => {
     });
 
     res.json(newNote);
-})
+});
 
 //BONUS add DELETE /api/notes/:id, will need to read all notes from the db.json file, remove the note by using the ID, then rewrite the notes to the db.json file
+
+
+// router.delete('/notes/:id', (req, res) => {
+//     let makePath = path.join(__dirname, 'db/db.json');
+//     for (let i=0; i < database.length; i++) {
+//         if([i].id === req.params.id) {
+//             database.splice(i, 1);
+//             break;
+//         }
+//     };
+    
+//     fs.writeFileSync(makePath, JSON.stringify(db/db.json), function(err) {
+//         if (err) throw err;
+//     });
+
+//     res.json(db/db.json);
+    
+// });
 
 module.exports = router;
